@@ -26,6 +26,9 @@
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
+	"engines": {
+		"node": "20.x"
+	},
 	"dependencies": {
 		"bcrypt": "^5.0.0",
 		"body-parser": "^1.19.0",
