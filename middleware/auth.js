@@ -19,7 +19,13 @@ function authenticateJWT(req, res, next) {
 			const token = authHeader
 				.replace(/^[Bb]earer /, "")
 				.trim();
-			res.locals.user = jwt.verify(token, SECRET_KEY);
+			console.log("Extracted Token:", token);
+			try {
+				res.locals.user = jwt.verify(token, SECRET_KEY);
+			} catch (err) {
+				console.error("Invalid Token:", err.message);
+				return next();
+			}
 		}
 		console.log("res.locals.user:", res.locals.user);
 		return next();
