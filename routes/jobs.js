@@ -53,6 +53,7 @@ router.post(
  */
 router.get("/", async function (req, res, next) {
 	const q = req.query;
+
 	// Convert query strings into appropriate types
 	if (q.minSalary !== undefined) q.minSalary = +q.minSalary;
 	q.hasEquity = q.hasEquity === "true";
