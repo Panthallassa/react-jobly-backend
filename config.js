@@ -9,9 +9,12 @@ const PORT = +process.env.PORT || 3001;
 
 // Use dev database, testing database, or via env var, production database
 function getDatabaseUri() {
-	return process.env.NODE_ENV === "test"
-		? "jobly_test"
-		: process.env.DATABASE_URL || "jobly";
+	const uri =
+		process.env.NODE_ENV === "test"
+			? "jobly_test"
+			: process.env.DATABASE_URL || "jobly";
+	console.log("Resolved Database URI:", uri);
+	return uri;
 }
 
 // Speed up bcrypt during tests, since the algorithm safety isn't being tested
