@@ -16,11 +16,10 @@ app.use(express.json());
 app.use(morgan("tiny"));
 app.use(authenticateJWT);
 
-// Updated routes with /api prefix
-app.use("/api/auth", authRoutes);
-app.use("/api/companies", companiesRoutes);
-app.use("/api/users", usersRoutes);
-app.use("/api/jobs", jobsRoutes);
+app.use("/auth", authRoutes);
+app.use("/companies", companiesRoutes);
+app.use("/users", usersRoutes);
+app.use("/jobs", jobsRoutes);
 
 /** Handle 404 errors -- this matches everything */
 app.use(function (req, res, next) {
